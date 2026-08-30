@@ -1,4 +1,4 @@
-.home {
+.home-hero {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -81,6 +81,29 @@
   max-width: 24rem;
 }
 
+.home-scroll-cue {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(180deg, transparent, var(--gold-ember));
+  transform: translateX(-50%);
+  animation: home-scroll-cue-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes home-scroll-cue-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateX(-50%) scaleY(0.7);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+
 @keyframes home-content-in {
   from {
     opacity: 0;
@@ -100,5 +123,10 @@
   .home-content > * {
     opacity: 1;
     animation: none;
+  }
+
+  .home-scroll-cue {
+    animation: none;
+    opacity: 0.6;
   }
 }
