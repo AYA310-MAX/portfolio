@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cinzel.variable} ${spectral.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${cinzel.variable} ${spectral.variable} ${spaceGrotesk.variable} scroll-smooth`}>
       <body>{children}</body>
     </html>
   )
