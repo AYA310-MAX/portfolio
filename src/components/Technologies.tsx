@@ -1,12 +1,14 @@
-import { PageShell } from '@/components/PageShell'
 import { skillGroups } from '@/content/skills.data'
 
-export default function SkillsPage() {
+export function Technologies() {
   return (
-    <PageShell eyebrow="The tools carried" title="Skills" lede="Ranges take years to cross.">
+    <section id="technologies" className="mx-auto max-w-3xl px-4 py-24">
+      <p className="eyebrow">The tools carried</p>
+      <h2 className="mt-1.5 mb-10 text-[clamp(1.6rem,3.5vw,2.2rem)]">Technologies</h2>
+
       {skillGroups.map((group) => (
         <div key={group.title} className="mb-7">
-          <h2 className="font-ui mb-2.5 text-[0.72rem] tracking-wider text-gold-ember uppercase">{group.title}</h2>
+          <h3 className="font-ui mb-2.5 text-[0.72rem] tracking-wider text-gold-ember uppercase">{group.title}</h3>
           <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
             {group.items.map((item) => (
               <li
@@ -19,6 +21,6 @@ export default function SkillsPage() {
           </ul>
         </div>
       ))}
-    </PageShell>
+    </section>
   )
 }
