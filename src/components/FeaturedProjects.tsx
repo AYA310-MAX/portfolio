@@ -1,19 +1,22 @@
 import { projects } from '@/content/projects.data'
 import { profile } from '@/content/profile'
+import { Reveal, RevealGroup, RevealItem } from './Reveal'
 
 const featured = projects.filter((p) => p.flagship).concat(projects.filter((p) => !p.flagship).slice(0, 2))
 
 export function FeaturedProjects() {
   return (
     <section id="projects" className="mx-auto max-w-3xl px-4 py-24">
-      <p className="eyebrow">What has been built</p>
-      <h2 className="mt-1.5 mb-10 text-[clamp(1.6rem,3.5vw,2.2rem)]">Featured Projects</h2>
+      <Reveal>
+        <p className="eyebrow">What has been built</p>
+        <h2 className="mt-1.5 mb-10 text-[clamp(1.6rem,3.5vw,2.2rem)]">Featured Projects</h2>
+      </Reveal>
 
-      <div className="flex flex-col gap-6">
+      <RevealGroup className="flex flex-col gap-6">
         {featured.map((project) => (
-          <div
+          <RevealItem
             key={project.id}
-            className="rounded-[10px] border border-gold-ember/22 p-7 [background:linear-gradient(155deg,var(--indigo-lift),var(--indigo-deep))]"
+            className="rounded-[10px] border border-gold-ember/22 p-7 transition-transform duration-300 hover:-translate-y-1 [background:linear-gradient(155deg,var(--indigo-lift),var(--indigo-deep))]"
           >
             <div className="flex flex-wrap items-baseline gap-2.5">
               {project.flagship && (
@@ -36,9 +39,9 @@ export function FeaturedProjects() {
                 View on GitHub ↗
               </a>
             )}
-          </div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
     </section>
   )
 }
